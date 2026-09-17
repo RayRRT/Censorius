@@ -1,0 +1,27 @@
+[package]
+name = "censorius"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Turn a password policy into ready-to-run, compliant hashcat artifacts (authorized pentesting only)."
+
+[lib]
+name = "censorius"
+path = "src/lib.rs"
+
+[[bin]]
+name = "censorius"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+inquire = "0.7"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+rayon = "1"
+anyhow = "1"
+thiserror = "2"
+indicatif = "0.17"
+
+[dev-dependencies]
+tempfile = "3"

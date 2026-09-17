@@ -1,0 +1,13 @@
+# Active Directory-style default: min 8, 3 of 4 classes.
+min_len = 8
+max_len = 16
+special_set = "!@#$%^&*()-_=+"
+forbidden_chars = ""
+min_classes = 3
+constraints = []
+
+[require]
+lower = 0
+upper = 0
+digit = 0
+special = 0
