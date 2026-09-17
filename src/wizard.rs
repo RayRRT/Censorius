@@ -65,6 +65,9 @@ pub fn run_wizard() -> Result<()> {
             .with_default(3)
             .with_help_message("Classes = lowercase, UPPERCASE, digits, symbols.")
             .prompt()?;
+        if !(1..=4).contains(&n) {
+            return Err(anyhow::anyhow!("Number of required classes must be between 1 and 4 (got {n}). Please re-run."));
+        }
         ClassMode::MOfN(n)
     } else {
         let upper: u8 = CustomType::new("Minimum UPPERCASE letters:").with_default(1)
@@ -166,7 +169,11 @@ pub fn run_wizard() -> Result<()> {
     };
 
     println!();
-    if !Confirm::new("Generate the attack artifacts now?").with_default(true).prompt()? {
+    if !Confirm::new("Generate the attack artifacts now?")
+        .with_default(true)
+        .with_help_message("Writes the wordlist, rules, masks, and hashcat commands. This does not run hashcat.")
+        .prompt()?
+    {
         println!("Cancelled — nothing written.");
         return Ok(());
     }
