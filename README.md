@@ -13,7 +13,7 @@ Interactive: `censorius` (wizard).
 
 Non-interactive:
 
-    censorius run --profile ad-default --seeds "acme,verano" --out out
+    censorius run --profile ad-default --seeds "acme,summer" --out out
     censorius run --policy my-policy.toml --wordlist rockyou.txt --mode 1000 --out out
 
 `censorius profile show ad-default` prints the built-in policy.
